@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+<br>
+<div class="row">
+    <div class="col-12" style="background-color: aqua;">
+<center><h3>Bienvenido, te invitamos a realizar el registro de tus ideas y llevar a cabo tus proyectos</h3></center>
+<br>
+<form class="row g-1" action="/ac_reg" method="POST">
+    <div class="row">
+    <div class="col-md-12">
+        <label for="Nom" class="form-label">Nombre de la persona</label>
+        <input type="text" class="form-control" id="Nom" name="Nom" required>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-12">
+        <label for="NomProy" class="form-label">Nombre del Proyecto</label>
+        <input type="text" class="form-control" id="NomProy" name="NomProy" required>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-12">
+        <label for="Desc" class="form-label">Decripción del proyecto</label>
+        <textarea class="form-control" id="Desc" name="Desc" rows="3"></textarea required>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-12">
+        <br>
+        <label for="Arch" class="form-label">Imagen</label>
+        <input type="file" name="Arch" id="Arch" accept=".jpg,.gif,.png" required>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-4">
+        <br>
+        <button type="submit" class="btn btn-primary">Enviar Requisicion</button>
+    </div>
+    </div>
+</form>
+<br>
+</div>
+</div>
+{% endblock %}
