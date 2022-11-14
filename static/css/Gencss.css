@@ -1,8 +1,15 @@
+.conT{
+    position: relative;
+    z-index: 1;
+    width: 35%;
+    height: 10%;
+}
 .fondo {
     font-family: "Open Sans", sans-serif;
     height: 100vh;
     display: none;
-    position: block;
+    position: relative;
+    z-index: 0;
     width:100%;
 }
 @keyframes spinner {
