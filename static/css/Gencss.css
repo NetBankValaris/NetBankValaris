@@ -2,7 +2,7 @@
     font-family: "Open Sans", sans-serif;
     height: 100vh;
     display: none;
-    position: fixed;
+    position: block;
     width:100%;
 }
 @keyframes spinner {
