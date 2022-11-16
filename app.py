@@ -41,3 +41,6 @@ def muestra():
     Dat = cursor.fetchall()
     return render_template("muestra.html", D = Dat[0])
 """
+if __name__ == "__main__":
+
+ app.run(debug=True)
