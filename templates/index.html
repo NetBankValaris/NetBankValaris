@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="container-bar">
+<body>
+    <div class="container-bar">
 	<input type="checkbox" id="btn-social">
 	<label for="btn-social" class="fa fa-play"></label>
 		<div class="icon-social">
@@ -48,7 +49,7 @@
 <br>
     <div class="row">
         <div class="col-12" style="background-color: black; color: white;" >
-            <h2>Metas que pensamos cumplir al terminar nuestro proyecto</h2>
+            <div class="container"><h2>Metas que pensamos cumplir al terminar nuestro proyecto</h2></div>
             <br>
             <div class="container">
                 <li>Crear un sistema donde cada participante quede en la historia y sea reconocido por su proyecto</li>
@@ -69,4 +70,6 @@
         </div>
     </div>
     <br>
-    {% endblock %}
+</body>
+
+{% endblock %}

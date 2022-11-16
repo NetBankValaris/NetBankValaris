@@ -36,9 +36,11 @@
 .container-bar .fa-twitter{
 	background: #00acee;
 }
-
+.container-bar .fa-github{
+	background: #747473;
+}
 .container-bar .fa-instagram{
-	background: #b637e9;
+	background: #e635ec;
 	border-radius: 0px 0px 5px 0px;
 }
 .container-bar #title{
@@ -95,6 +97,10 @@
 	transform: translateX(-100%);
 	box-shadow: 0px 1px 10px rgba(0,0,0,0.0);
 }
+
+
+
+
 
 
 
