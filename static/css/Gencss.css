@@ -1,3 +1,7 @@
+.row{
+    width: 80%;
+    margin-left: 10%;
+}
 .fondo {
     font-family: "Open Sans", sans-serif;
     height: 100vh;
