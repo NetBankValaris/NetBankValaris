@@ -1,36 +1,63 @@
 {% extends "layout.html" %}
 {% block content %}
-<link rel="stylesheet" href="/static/css/Gencss.css">
-<br>
-<div class="row">
+{% if UP == "true" %}
+<div class="row row-F">
     <div class="col-12" style="background-color:white;">
-<center><h3>Bienvenido, te invitamos a realizar el registro de tus ideas y llevar a cabo tus proyectos</h3></center>
+        <center><h3>Primero proporciona el usuario y código que te proporcionamos</h3></center>
+        <br>
+        </div>
+        <form action="/verifi" method="POST">
+            <div class="col-md-12">
+                <label for="Usu" class="form-label">Usuario</label>
+                <input type="text" class="form-control" id="Usu" name="Usu" required>
+            </div>
+            <div class="col-md-12">
+                <label for="Cont" class="form-label">Contraseña</label>
+                <input type="text" class="form-control" id="Cont" name="Cont" required>
+            </div>
+            <div class="col-md-4">
+                <br>
+                <button type="submit" class="btn btn-primary">Enviar Verificación de usuario</button>
+            </div>
+</div>
+</div>
 <br>
-<form action="/ac_reg" method="POST">
-    <div class="col-md-12">
-        <label for="Nom" class="form-label">Nombre de la persona</label>
-        <input type="text" class="form-control" id="Nom" name="Nom" required>
-    </div>
-    <div class="col-md-12">
-        <label for="NomProy" class="form-label">Nombre del Proyecto</label>
-        <input type="text" class="form-control" id="NomProy" name="NomProy" required>
-    </div>
-    <div class="col-md-12">
-        <label for="Desc" class="form-label">Decripción del proyecto</label>
-        <textarea class="form-control" id="Desc" name="Desc" rows="3"></textarea required>
-    </div>
-    <div class="col-md-12">
-        <br>
-        <label for="Arch" class="form-label">Imagen</label>
-        <input type="file" name="Arch" id="Arch" accept=".jpg,.gif,.png" required>
-    </div>
-    <div class="col-md-4">
-        <br>
-        <button type="submit" class="btn btn-primary">Enviar Requisicion</button>
-    </div>
 
-</form>
-<br>
-</div>
-</div>
+{% else %}
+<div class="row row-F">
+    <div class="col-12" style="background-color:white;">
+        <center><h3>Ahora por favor ingresa los datos de tú proyecto aquí</h3></center>
+        <br>
+        </div>
+        <form action="/ac_reg" method="POST">
+            <div class="col-md-12">
+                <label for="NomProy" class="form-label">Nombre del Proyecto</label>
+                <input type="text" class="form-control" id="NomProy" name="NomProy" required>
+            </div>
+            <div class="col-md-12">
+                <label for="inddat" class="form-label">Datos de Institucion y/o asesor</label>
+                <input type="text" class="form-control" id="intdat" name="intdat" required>
+            </div>
+            <div class="col-md-12">
+                <label for="Nom" class="form-label">Nombre de la persona y/o integrantes</label>
+                <input type="text" class="form-control" id="Nom" name="Nom" required>
+            </div>
+            <div class="col-md-12">
+                <label for="descripcion" class="form-label">Decripción del proyecto</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea required>
+            </div>
+            <div class="col-md-12">
+                <br>
+                <label for="Arch" class="form-label">Imagen</label>
+                <input type="file" name="Arch" id="Arch" accept=".jpg,.gif,.png" >
+            </div>
+            <div class="col-md-4">
+                <br>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        
+        </form>
+    <br>
+    </div>
+    {% endif %}
 {% endblock %}
