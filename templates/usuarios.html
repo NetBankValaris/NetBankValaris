@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<br>
+<br>
+<div class="container box-white">
+    <center>
+        <h3>Crear Usuarios para Registrar</h3>
+    </center>
+
+    <div class="container">
+        <form class="row g-3" action="/usuarios_ingresar" method="post">
+            <div class="col-md-12">
+                <label for="usuario" class="form-label">Usuario</label>
+                <input type="text" class="form-control" name="usuario" id="usuario" required></input>
+            </div>
+            <div class="col-md-12">
+                <label for="contraseña" class="form-label">Contraseña</label>
+                <input type="text" class="form-control" name="contraseña" id="contraseña" required></input>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-danger">Enviar</button>
+                <br>
+                <br>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

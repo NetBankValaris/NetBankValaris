@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+<br>
+<br>
+
+<div class="container box-white">
+<form class="row g-3" action="/registro_fdetalle/" method="GET">
+    <div class="col-md-12">
+    <label for="nomproy" class="form-label">Nombre del Proyecto</label>
+    <input type="text" class="form-control" name="nomproy" id="nomproy" value="{{dat.1}}"
+    readonly="readonly"></input>
+    </div>
+    <br>
+    <div class="col-md-6">
+    <label for="intdat" class="form-label">Datos de Institución o Asesor</label>
+    <input type="text" class="form-control" name="intdat" id="intdat" value="{{dat.2}}"
+    readonly="readonly"></input>
+    </div>
+    <div class="col-md-6">
+    <label for="nom" class="form-label">Nombres de el Integrante(s)</label>
+    <input type="text" class="form-control" name="nom" id="nom" value="{{dat.3}}"
+    readonly="readonly"></input>
+    </div>
+    <div class="col-md-12">
+    <label for="descripcion" class="form-label">Descripcion del Proyecto</label>
+    <input type="text" class="form-control" name="descripcion" id="descripcion" value="{{dat.4}}"
+    readonly="readonly"></input>
+    </div>
+    <div class="col-md-12">
+    <label for="fecha" class="form-label">Fecha</label>
+    <input type="text" class="form-control" name="fecha" id="fecha" value="{{dat.5}}"
+    readonly="readonly"></input>
+    </div>
+    <div class="col-md-4">
+        <a href="/admin" class="btn btn-primary">Volver</a>
+    </div>
+    </form>
+    <br>
+</div>
+
+{% endblock %}

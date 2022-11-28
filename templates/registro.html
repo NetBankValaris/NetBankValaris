@@ -1,8 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
 {% if UP == "true" %}
-<div class="row row-F">
-    <div class="col-12" style="background-color:white;">
+<br>
+<br>
+<br>
+<div class="row row-F box-white">
+    <br>
+    <div class="col-12">
         <center>
             <h3>Primero proporciona el usuario y código que te proporcionamos</h3>
         </center>
@@ -20,55 +24,88 @@
         <div class="col-md-4">
             <br>
             <button type="submit" class="btn btn-primary">Enviar Verificación de usuario</button>
+            <br>
         </div>
+        <br>
     </form>
+</div>
+<div class="containerxd">
+    <input type="checkbox" id="btn-mas">
+    <div class="redes">
+        <a href="#" class="fa fa-user"></a>
+        <a href="#" class="fa fa-cube"></a>
+        <a href="#" class="fa fa-question"></a>
+        <a href="#" class="fa fa-phone"></a>
+    </div>
+    <div class="btn-mas">
+        <label for="btn-mas" class="fa fa-plus"></label>
+    </div>
 </div>
 <br>
 
 {% else %}
-<div class="row row-F">
-    <div class="col-12" style="background-color:white;">
-        <center>
-            <h3>Ahora por favor ingresa los datos de tú proyecto aquí</h3>
-        </center>
-        <br>
+<br>
+<br>
+<div class="container wrap box-white">
+    <div class="row row-F">
+        <div class="col-12" style="background-color:white;">
+            <center>
+                <h3>Ahora por favor ingresa los datos de tú proyecto aquí</h3>
+            </center>
+            <br>
+        </div>
+    </div>
+    <form class="row g-3 row-F" action="/ac_reg" method="POST" enctype="multipart/form-data">
+        <div class="col-md-12">
+            <label for="NomProy" class="form-label">Nombre del Proyecto</label>
+            <input type="text" class="form-control" id="NomProy" name="NomProy" required>
+        </div>
+        <div class="col-md-12">
+            <label for="Nom" class="form-label">Nombre de participante(s)</label>
+            <input type="text" class="form-control" id="Nom" name="Nom" required>
+        </div>
+        <div class="col-md-12">
+            <label for="descripcion" class="form-label">Decripción del proyecto</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea required>
+        </div>
+        <div class="col-md-12">
+           <label for="intdat" class="form-label">Nombre de la Institución y/o asesor</label>
+           <input type="text" class="form-control" id="intdat" name="intdat" required>
+        </div>
+        <div class="col-md-6">
+          <label for="Arch" class="form-label">Imagen</label>
+          <input type="file" class="form-control" name="Arch" id="Arch" accept=".jpg, .jpeg, .png">
+        </div>
+        <div class="col-md-6">
+            <label for="Categ" class="form-label">Categoría</label>
+            <select class="form-control" id="Categ" name="Categ" required>
+                <option disabled selected>Elige...</option>
+                {% for i in cate %}
+               <option value="{{i.0}}">{{i.1}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-4">
+           <br>
+           <button type="submit" class="btn btn-primary">Enviar</button>
+           <br>
+           <br>
+        </div>
+    </form>
+
+    <div class="containerxd">
+        <input type="checkbox" id="btn-mas">
+        <div class="redes">
+        <a href="#" class="fa fa-user"></a>
+        <a href="#" class="fa fa-cube"></a>
+        <a href="#" class="fa fa-question"></a>
+        <a href="#" class="fa fa-phone"></a>
+        </div>
+        <div class="btn-mas">
+            <label for="btn-mas" class="fa fa-plus"></label>
+        </div>
     </div>
 </div>
-<form class="row g-3 row-F" action="/ac_reg" method="POST" enctype="multipart/form-data">
-    <div class="col-md-3">
-        <label for="NomProy" class="form-label">Nombre del Proyecto</label>
-        <input type="text" class="form-control" id="NomProy" name="NomProy" required>
-    </div>
-    <div class="col-md-9">
-        <label for="Nom" class="form-label">Nombre de participante(s)</label>
-        <input type="text" class="form-control" id="Nom" name="Nom" required>
-    </div>
-    <div class="col-md-12">
-        <label for="descripcion" class="form-label">Decripción del proyecto</label>
-        <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea required>
-    </div>
-    <div class="col-md-12">
-        <label for="intdat" class="form-label">Nombre de la Institución y/o asesor</label>
-        <input type="text" class="form-control" id="intdat" name="intdat" required>
-    </div>
-    <div class="col-md-6">
-        <label for="Arch" class="form-label">Imagen</label>
-        <input type="file" class="form-control" name="Arch" id="Arch" required>
-    </div>
-    <div class="col-md-6">
-        <label for="Categ" class="form-label">Categoría</label>
-        <select class="form-control" id="Categ" name="Categ" required>
-            <option disabled selected>Elige...</option>
-            {% for i in cate %}
-            <option value="{{i.0}}">{{i.1}}</option>
-            {% endfor %}
-        </select>
-    </div>
-    <div class="col-md-4">
-        <br>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </div>
-</form>
     <br>
     <br>
     <br>

@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block content %}
+<br>
+<br>
+<div class="container box-white">
+<center><table><h3>Registro de Proyectos</h3></table></center>
+<tr>
+
+<table class="table">
+<thead>
+<tr>
+<th width="30%" class="table-dark" scope="col">Nombre del Proyecto</th>
+<th width="30%" class="table-dark" scope="col">Fecha</th>
+<th width="30%" class="table-dark" scope="col">Usuario</th>
+<th width="9%" class="table-dark" scope="col">Detalle</th>
+<th width="8%" class="table-dark" scope="col">Autorizar</th>
+<th width="7%" class="table-dark" scope="col">Eliminar</th>
+</tr>
+</thead>
+<tbody>
+<table class="table table-striped table-danger">
+{% for i in pue %}
+<tr>
+<td width="30%">{{i.1}}</td>
+<td width="30%">{{i.5}}</td>
+<td width="30%">{{i.6}}</td>
+<td width="5%"><center><a class="btn btn-danger"
+href="/registro_detalle/{{i.0}}" role="button">Detalle</a></center></td>
+<td width="5%"><center><a class="btn btn-danger"
+    href="/admin_autorizar/{{i.0}}" role="button">Autorizar</a></center></td>
+<td width="5%"><center><a class="btn btn-outline-danger"
+href="/admin_borrar/{{i.0}}" role="button">Borrar</a></center></td>
+</tr>
+{% endfor %}
+</table>
+</tbody>
+</table>
+<!--USUARIOS-->
+    <center><table><h3>Registro de Usuarios</h3></table></center>
+    <tr>
+    
+    <table class="table">
+    <thead>
+    <tr>
+    <th width="20%" class="table-dark" scope="col">Usuarios</th>
+    <th width="40%" class="table-dark" scope="col">Contraseña</th>
+    <td width="20%" class="table-dark"><center><a class="btn btn-danger"
+        href="/usuarios" role="button">Agregar nuevo Usuario</a></center></td>
+    </tr>
+    </thead>
+    <tbody>
+    <table class="table table-striped table-danger">
+    {% for i in pue2 %}
+    <tr>
+    <td width="20%">{{i.0}}</td>
+    <td width="50%">{{i.1}}</td>
+    <td width="10%"><center><a class="btn btn-outline-danger"
+        href="/usuarios_tabla_borrar/{{i.0}}" role="button">Borrar</a></center></td>
+    </tr>
+    {% endfor %}
+    </table>
+    </tbody>
+    </table>
+    <br>
+</div>
+{% endblock %}

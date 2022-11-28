@@ -1,69 +1,136 @@
 {% extends "layout.html" %}
 {% block content %}
-{% if Bool == True %}
-    {% for i in catTip %}
+<br>
+<div class="row row-F">
+    <div class="col-md-8">
+        {% if Bool == True %}
+        {% for i in catTip %}
         {% if i.0 == 1 %}
-        <h1>{{i.1}}</h1>
+        <h1>Tipo de proyecto: {{i.1}}</h1>
         {% endif %}
-    {% endfor %}
-{% else %}
-    {% for i in catTip %}
+        {% endfor %}
+        {% else %}
+        {% for i in catTip %}
         {% if i.0 == num %}
-        <h1>{{i.1}}</h1>
+        <h1>Tipo de proyecto: {{i.1}}</h1>
         {% endif %}
-    {% endfor %}
-{% endif %}
-    <div class="row row-F">
-        <div class="col-md-4">
-            <div class="list-group">
-                {% for c in catTip %}
-                {% if c.0 == 1 and num == 0%}
-                <a href="/proyectos_fil/{{c.0}}" class="list-group-item list-group-item-action active"
-                    aria-current="true">
-                    {{c.1}}
-                </a>
-                {% elif c.0 == num %}
-                <a href="/proyectos_fil/{{c.0}}" class="list-group-item list-group-item-action active"
-                    aria-current="true">
-                    {{c.1}}
-                </a>
-                {% else %}
-                <a href="/proyectos_fil/{{c.0}}" class="list-group-item list-group-item-action">{{c.1}}</a>
-                {% endif %}
-                {% endfor %}
-            </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="col-md-4">
+        <div class="list-group">
+            {% for c in catTip %}
+            {% if c.0 == 1 and num == 0%}
+            <a href="/proyectos_fil/{{c.0}}" class="list-group-item list-group-item-action liA">
+                {{c.1}}
+            </a>
+            {% elif c.0 == num %}
+            <a href="/proyectos_fil/{{c.0}}" class="list-group-item list-group-item-action liA">
+                {{c.1}}
+            </a>
+            {% else %}
+            <a href="/proyectos_fil/{{c.0}}" class="list-group-item list-group-item-action li">{{c.1}}</a>
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
 </div>
+<br>
+<br>
+
 {% if Bool == True %}
-{% for c in dats %}
-{% if  %}
-    <div class="row row-F">
-        <div class="col-md-12">
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Accordion Item #1 prede
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                        data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the
-                            collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes control the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or overriding our default variables.
-                            It's also worth noting that just about any HTML can go within the
-                            <code>.accordion-body</code>, though the transition does limit overflow.
+<div class="row row-F">
+    <div class="col-md-12">
+        <div class="accordion" id="accor">
+            {% for c in dats %}
+            {% if c.9 == 1 %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="h{{c.0}}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#col{{c.0}}" aria-expanded="false" aria-controls="col{{c.0}}">
+                        {{c.1}}
+                    </button>
+                </h2>
+                <div id="col{{c.0}}" class="accordion-collapse collapse" aria-labelledby="h{{c.0}}"
+                    data-bs-parent="#accor">
+                    <div class="accordion-body">
+                        <p class="fecha">Fue realizado por: {{c.3}}. Realizado en: {{c.2}}, registrado el {{c.6}}</p>
+                        {% if c.5 == "" %}
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p>Lo sentimos, por el momento no tenemos imagen del proyecto</p>
+                            </div>
+                            <div class="col-md-9">
+                                <span>Descripción <br> {{c.4}}</span>
+                            </div>
                         </div>
+                        {% else %}
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="/static/users/{{c.7+c.5}}" class="img">
+                            </div>
+                            <div class="col-md-9">
+                                <span>Descripción <br> {{c.4}}</span>
+                            </div>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
-    {% else %}
+</div>
+{% else %}
+<div class="row row-F">
+    <div class="col-md-12">
+        <div class="accordion" id="accor">
+            {% for c in dats %}
+            {% if c.9 == num %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="h{{c.0}}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#col{{c.0}}" aria-expanded="false" aria-controls="col{{c.0}}">
+                        {{c.1}}
+                    </button>
+                </h2>
+                <div id="col{{c.0}}" class="accordion-collapse collapse" aria-labelledby="h{{c.0}}"
+                    data-bs-parent="#accor">
+                    <div class="accordion-body">
+                        <p class="fecha">Fue realizado por: {{c.3}}. Realizado en: {{c.2}}, registrado el {{c.6}}</p>
+                        {% if c.5 == "" %}
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p>Lo sentimos, por el momento no tenemos imagen del proyecto</p>
+                            </div>
+                            <div class="col-md-9">
+                                <span>Descripción <br> {{c.4}}</span>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="/static/users/{{c.7+c.5}}" class="img">
+                            </div>
+                            <div class="col-md-9">
+                                <span>Descripción <br> {{c.4}}</span>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
 
-    {% endif %}
-    {% endblock %}
+{% endif %}
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
